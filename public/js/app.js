@@ -37271,10 +37271,16 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_AppView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/AppView */ "./resources/js/components/AppView.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+
+new _components_AppView__WEBPACK_IMPORTED_MODULE_0__["default"]();
 
 /***/ }),
 
@@ -37323,6 +37329,355 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/components/AppView.js":
+/*!********************************************!*\
+  !*** ./resources/js/components/AppView.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AppView; });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./resources/js/components/index.js");
+/* harmony import */ var _create__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create */ "./resources/js/components/create.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+var AppView = /*#__PURE__*/function () {
+  function AppView() {
+    _classCallCheck(this, AppView);
+
+    this.drawAppInit();
+  }
+
+  _createClass(AppView, [{
+    key: "drawAppInit",
+    value: function drawAppInit() {// const listLink = document.querySelector('#listLink');
+      // if (listLink) {
+      //     listLink.addEventListener("click", () => { 
+      //         console.log('list');
+      //         drawIndexInit();
+      //     });
+      // }
+      // const createLink = document.querySelector('#createLink');
+      // if (createLink) {
+      //     createLink.addEventListener("click", () => { 
+      //         console.log('create');
+      //         drawCreateInit();
+      //     });
+      // }
+      // const contentJSDOM = document.querySelector('#contentJS');
+      // if (contentJSDOM) {
+      //     contentJSDOM.innerHTML += `
+      //         <div id="errors"></div>
+      //         <div id="messages"></div>
+      //         <div class="container">
+      //             <div class="row justify-content-center">
+      //                 <div class="col-md-10">
+      //                     <div class="card min-width-1000">
+      //                         <div class="header">
+      //                             <div><img class="image" src="pictures/bank.jpg" alt="bank"></div>
+      //                             <div class="header-text">
+      //                                 <h2> Čiupčius and Griebčius Inc. </h2>
+      //                                 <div> Give Us All Of Your Money NOW!!! </div>
+      //                             </div>
+      //                             <div><img class="image" src="pictures/money.jpg" alt="money"></div>
+      //                         </div>
+      //                         <div id="contentJSON"></div>
+      //                         <div class="footer">
+      //                             <div> Grab-All Brothers: We Love Your Money And NOT You!!! </div>
+      //                             <div> &copy; 2020 Corona Edition </div>
+      //                         </div>
+      //                     </div>
+      //                 </div>
+      //             </div>
+      //         </div>
+      //     `;
+      //     drawIndexInit();
+      // }
+    }
+  }]);
+
+  return AppView;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/create.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/create.js ***!
+  \*******************************************/
+/*! exports provided: drawCreateInit */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawCreateInit", function() { return drawCreateInit; });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./resources/js/components/index.js");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helper */ "./resources/js/components/helper.js");
+
+
+var drawCreateInit = function drawCreateInit() {
+  axios.post('http://localhost/Laravel-Bank/public/accountsJS/create', {}).then(function (response) {
+    console.log('getting edit info');
+    console.log(response.data);
+    var contentJSONDOM = document.querySelector('#contentJSON');
+
+    if (contentJSONDOM) {
+      contentJSONDOM.innerHTML = "\n                <div class=\"card-header\">Edit Account</div>\n                <div class=\"card-body\"> \n                    <div class=\"form-group\">\n                        <label> Account </label>\n                        <input type=\"text\" id=\"createAccount\" name=\"account\" value=\"".concat(response.data.newAccount, "\" class=\"form-control\">\n                        <small class=\"form-text text-muted\">Account Name</small>\n                    </div>\n                    <div class=\"form-group\">\n                        <label>Personal Code</label>\n                        <input type=\"text\" id=\"createPersonID\" name=\"personal_code\" value=\"").concat(response.data.newPersonID, "\" class=\"form-control\">\n                        <small class=\"form-text text-muted\">Person's ID</small>\n                    </div>\n                    <div class=\"form-group\">\n                        <label>Name</label>\n                        <input type=\"text\" id=\"createName\" name=\"name\" value=\"").concat(response.data.newName, "\" class=\"form-control\">\n                        <small class=\"form-text text-muted\">Person's Name</small>\n                    </div>\n                    <div class=\"form-group\">\n                        <label>Surname</label>\n                        <input type=\"text\" id=\"createSurname\" name=\"surname\" value=\"").concat(response.data.newSurname, "\" class=\"form-control\">\n                        <small class=\"form-text text-muted\">Person's Surname</small>\n                    </div>\n                    <button id=\"createButton\" type=\"submit\" onclick=\"\"> ADD </button>\n                </div>\n            ");
+      var createButton = document.querySelector('#createButton');
+
+      if (createButton) {
+        createButton.addEventListener("click", function () {
+          console.log('create');
+          axios.post('http://localhost/Laravel-Bank/public/accountsJS/store', {
+            uuid: response.data.newUuid,
+            account: document.querySelector('#createAccount').value,
+            personal_code: document.querySelector('#createPersonID').value,
+            name: document.querySelector('#createName').value,
+            surname: document.querySelector('#createSurname').value,
+            value: response.data.newValue
+          }).then(function (response) {
+            console.log(response);
+            Object(_helper__WEBPACK_IMPORTED_MODULE_1__["displayMessages"])(response.data);
+            Object(_index__WEBPACK_IMPORTED_MODULE_0__["drawIndexInit"])();
+          })["catch"](function (error) {
+            console.log(error);
+            Object(_helper__WEBPACK_IMPORTED_MODULE_1__["displayErrorMessages"])(error.response.data.errors);
+          });
+        });
+      }
+    }
+  })["catch"](function (error) {
+    console.log(error);
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/components/edit.js":
+/*!*****************************************!*\
+  !*** ./resources/js/components/edit.js ***!
+  \*****************************************/
+/*! exports provided: drawEditInit */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawEditInit", function() { return drawEditInit; });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./resources/js/components/index.js");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helper */ "./resources/js/components/helper.js");
+
+
+var drawEditInit = function drawEditInit(id) {
+  axios.post('http://localhost/Laravel-Bank/public/accountsJS/edit/' + id, {}).then(function (response) {
+    console.log('getting edit info');
+    console.log(response.data);
+    var contentJSONDOM = document.querySelector('#contentJSON');
+
+    if (contentJSONDOM) {
+      contentJSONDOM.innerHTML = "\n                <div class=\"card-header\">Edit Account</div>\n                <div class=\"card-body\"> \n                    <div class=\"form-group\">\n                        <label> Account </label>\n                        <input type=\"text\" name=\"account\" value=\"".concat(response.data.account, "\" class=\"form-control\" readonly>\n                        <small class=\"form-text text-muted\">Account Name</small>\n                    </div>\n                    <div class=\"form-group\">\n                        <label>Personal Code</label>\n                        <input type=\"text\" name=\"personal_code\" value=\"").concat(response.data.personal_code, "\" class=\"form-control\" readonly>\n                        <small class=\"form-text text-muted\">Person's ID</small>\n                    </div>\n                    <div class=\"form-group\">\n                        <label>Name</label>\n                        <input type=\"text\" id=\"editName\" name=\"name\" value=\"").concat(response.data.name, "\" class=\"form-control\">\n                        <small class=\"form-text text-muted\">Person's Name</small>\n                    </div>\n                    <div class=\"form-group\">\n                        <label>Surname</label>\n                        <input type=\"text\" id=\"editSurname\" name=\"surname\" value=\"").concat(response.data.surname, "\" class=\"form-control\">\n                        <small class=\"form-text text-muted\">Person's Surname</small>\n                    </div>\n                    <button id=\"editButton\" type=\"submit\" onclick=\"\"> EDIT </button>\n                </div>\n            ");
+      var editButton = document.querySelector('#editButton');
+
+      if (editButton) {
+        editButton.addEventListener("click", function () {
+          console.log('update');
+          axios.post('http://localhost/Laravel-Bank/public/accountsJS/update/' + response.data.id, {
+            name: document.querySelector('#editName').value,
+            surname: document.querySelector('#editSurname').value
+          }).then(function (response) {
+            console.log(response);
+            Object(_helper__WEBPACK_IMPORTED_MODULE_1__["displayMessages"])(response.data);
+            Object(_index__WEBPACK_IMPORTED_MODULE_0__["drawIndexInit"])();
+          })["catch"](function (error) {
+            console.log(error);
+            Object(_helper__WEBPACK_IMPORTED_MODULE_1__["displayErrorMessages"])(error.response.data.errors);
+          });
+        });
+      }
+    }
+  })["catch"](function (error) {
+    console.log(error);
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/components/helper.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/helper.js ***!
+  \*******************************************/
+/*! exports provided: displayErrorMessages, displayMessages */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "displayErrorMessages", function() { return displayErrorMessages; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "displayMessages", function() { return displayMessages; });
+var displayErrorMessages = function displayErrorMessages(errors, specificError) {
+  console.log(errors);
+  var html = "\n        <div class=\"container\">\n            <div class=\"row justify-content-center\">\n                <div class=\"col-md-9\">\n                    <div class=\"alert\">\n                        <ul class=\"list-group\">\n    ";
+
+  if (errors) {
+    Object.entries(errors).forEach(function (error) {
+      html += "\n                            <li class=\"list-group-item list-group-item-danger\"> ".concat(error[1], " </li>\n            ");
+    });
+  }
+
+  if (specificError) {
+    html += "\n                            <li class=\"list-group-item list-group-item-danger\"> ".concat(specificError, "</div>\n        ");
+  }
+
+  ;
+  html += "\n                        </ul>\n                    </div>\n                </div>\n            </div>\n        </div>\n    ";
+  document.querySelector('#messages').innerHTML = '';
+  document.querySelector('#errors').innerHTML = html;
+};
+var displayMessages = function displayMessages(sucessMessage, infoMessage) {
+  var html = "\n        <div class=\"container\">\n            <div class=\"row justify-content-center\">\n                <div class=\"col-md-9\">\n                    <div class=\"alert\">    \n    ";
+
+  if (sucessMessage) {
+    html += "\n                        <div class=\"alert alert-success\" role=\"alert\"> ".concat(sucessMessage, " </div>\n        ");
+  }
+
+  ;
+
+  if (infoMessage) {
+    html += "\n                        <div class=\"alert alert-success\" role=\"alert\"> ".concat(infoMessage, " </div>\n        ");
+  }
+
+  ;
+  html += "\n                    </div>\n                </div>\n            </div>\n        </div>\n    ";
+  document.querySelector('#errors').innerHTML = '';
+  document.querySelector('#messages').innerHTML = html;
+};
+
+/***/ }),
+
+/***/ "./resources/js/components/index.js":
+/*!******************************************!*\
+  !*** ./resources/js/components/index.js ***!
+  \******************************************/
+/*! exports provided: drawIndexInit */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "drawIndexInit", function() { return drawIndexInit; });
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit */ "./resources/js/components/edit.js");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helper */ "./resources/js/components/helper.js");
+
+
+var drawIndexInit = function drawIndexInit() {
+  axios.post('http://localhost/Laravel-Bank/public/accountsJS', {}).then(function (response) {
+    console.log('getting index info');
+    console.log(response.data);
+    var data = response.data;
+    var contentJSONDOM = document.querySelector('#contentJSON');
+
+    if (contentJSONDOM) {
+      var accounts = '';
+      var editButton, deleteButton, addButton, removeButton;
+      Object.entries(data.accounts).forEach(function (account) {
+        account = account['1'];
+        accounts += "\n                    <span>\n                        ".concat(account.account, " \n                        ( ").concat(account.personal_code, " ) \n                        ").concat(account.name, " \n                        ").concat(account.surname, ": \n                        ").concat(account.value, " \n                        &euro; \n                        ").concat(account.value * data.rate, " \n                        &dollar;\n                    </span>\n                ");
+
+        if (data.role === 'admin') {
+          accounts += "\n                        <div class=\"flex\">\n                            <button id=\"editButton".concat(account.id, "\" type=\"submit\"> EDIT </button>\n                            <button id=\"addButton").concat(account.id, "\" type=\"submit\"> ADD </button>\n                            <button id=\"removeButton").concat(account.id, "\" type=\"submit\"> REMOVE </button>\n                            <input id=\"value").concat(account.id, "\" type=\"text\" name=\"value\" value=\"0\" class=\"list-input\">\n                            <button id=\"deleteButton").concat(account.id, "\" type=\"submit\"> DELETE </button>\n                        </div>\n                    ");
+        }
+      });
+      contentJSONDOM.innerHTML = "\n                <div class=\"card-header\"> Account List </div>\n                <div class=\"card-body\"> ".concat(accounts, " </div>\n            ");
+      Object.entries(data.accounts).forEach(function (account) {
+        account = account['1'];
+        editButton = document.querySelector('#editButton' + account.id);
+
+        if (editButton) {
+          editButton.addEventListener("click", function () {
+            console.log('edit');
+            Object(_edit__WEBPACK_IMPORTED_MODULE_0__["drawEditInit"])(account.id);
+          });
+        }
+
+        deleteButton = document.querySelector('#deleteButton' + account.id);
+
+        if (deleteButton) {
+          deleteButton.addEventListener("click", function () {
+            console.log('delete');
+            axios.post('http://localhost/Laravel-Bank/public/accountsJS/delete/' + account.id, {}).then(function (response) {
+              console.log(response);
+
+              if (response.data.type === 'success') {
+                Object(_helper__WEBPACK_IMPORTED_MODULE_1__["displayMessages"])(response.data.message);
+              } else if (response.data.type === 'fail') {
+                Object(_helper__WEBPACK_IMPORTED_MODULE_1__["displayErrorMessages"])(null, response.data.message);
+              }
+
+              drawIndexInit();
+            })["catch"](function (error) {
+              console.log(error);
+            });
+          });
+        }
+
+        addButton = document.querySelector('#addButton' + account.id);
+
+        if (addButton) {
+          addButton.addEventListener("click", function () {
+            console.log('add');
+            axios.post('http://localhost/Laravel-Bank/public/accountsJS/add/' + account.id, {
+              value: document.querySelector('#value' + account.id).value
+            }).then(function (response) {
+              console.log(response);
+              Object(_helper__WEBPACK_IMPORTED_MODULE_1__["displayMessages"])(response.data);
+              drawIndexInit();
+            })["catch"](function (error) {
+              console.log(error);
+              Object(_helper__WEBPACK_IMPORTED_MODULE_1__["displayErrorMessages"])(error.response.data.errors);
+            });
+          });
+        }
+
+        removeButton = document.querySelector('#removeButton' + account.id);
+
+        if (removeButton) {
+          removeButton.addEventListener("click", function () {
+            console.log('remove');
+            axios.post('http://localhost/Laravel-Bank/public/accountsJS/remove/' + account.id, {
+              value: document.querySelector('#value' + account.id).value
+            }).then(function (response) {
+              console.log(response);
+
+              if (response.data.type === 'success') {
+                Object(_helper__WEBPACK_IMPORTED_MODULE_1__["displayMessages"])(response.data.message);
+              } else if (response.data.type === 'fail') {
+                Object(_helper__WEBPACK_IMPORTED_MODULE_1__["displayErrorMessages"])(null, response.data.message);
+              }
+
+              drawIndexInit();
+            })["catch"](function (error) {
+              console.log(error);
+              Object(_helper__WEBPACK_IMPORTED_MODULE_1__["displayErrorMessages"])(error.response.data.errors);
+            });
+          });
+        }
+      });
+    }
+  })["catch"](function (error) {
+    console.log(error);
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -37341,8 +37696,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Laravel\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Laravel\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\Laravel-Trial\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\Laravel-Trial\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
