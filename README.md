@@ -1,2 +1,1 @@
-# Laravel-Trial
-trial exam assignment
+Exam Trial Assignment
