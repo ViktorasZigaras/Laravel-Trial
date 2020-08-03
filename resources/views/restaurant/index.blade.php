@@ -5,16 +5,16 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Author List</div>
+                <div class="card-header">Restaurant List</div>
                 <div class="card-body">
-                    @foreach ($authors as $author)
-                        <div class="list-text"> {{$author->name}} {{$author->surname}} </div>
+                    @foreach ($restaurants as $restaurant)
+                        <div class="list-text"> {{$restaurant->title}}: customers {{$restaurant->customers}}, emploees {{$restaurant->emploees}} </div>
                         <div class="flex">
-                            <form method="GET" action="{{route('author.edit', [$author])}}">
+                            <form method="GET" action="{{route('restaurant.edit', [$restaurant])}}">
                                 @csrf
                                 <button type="submit" class="btn btn-primary">EDIT</button>
                             </form>
-                            <form method="POST" action="{{route('author.destroy', [$author])}}">
+                            <form method="POST" action="{{route('restaurant.destroy', [$restaurant])}}">
                                 @csrf
                                 <button type="submit" class="btn btn-primary">DELETE</button>
                             </form>
