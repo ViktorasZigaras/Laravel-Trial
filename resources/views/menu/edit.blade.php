@@ -5,39 +5,45 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Edit Book</div>
+                <div class="card-header">Edit Menu</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('book.update',[$book])}}" id="form">
+                    <form method="POST" action="{{route('menu.update',[$menu])}}" id="form">
 
                         <div class="form-group">
                            <label>Title</label>
-                           <input type="text" name="title" value="{{old('title',$book->title)}}" class="form-control">
-                           <small class="form-text text-muted">Book Title</small>
+                           <input type="text" name="title" value="{{old('title',$menu->title)}}" class="form-control">
+                           <small class="form-text text-muted">Menu Title</small>
                         </div>
 
                         <div class="form-group">
-                           <label>ISBN</label>
-                           <input type="text" name="isbn" value="{{old('isbn',$book->isbn)}}" class="form-control">
-                           <small class="form-text text-muted">Book ISBN</small>
+                           <label>Price</label>
+                           <input type="text" name="price" value="{{old('price',$menu->price)}}" class="form-control">
+                           <small class="form-text text-muted">Menu Price</small>
                         </div>
 
                         <div class="form-group">
-                           <label>Pages</label>
-                           <input type="text" name="pages" value="{{old('pages',$book->pages)}}" class="form-control">
-                           <small class="form-text text-muted">Page Count</small>
+                           <label>Weight</label>
+                           <input type="text" name="weight" value="{{old('weight',$menu->weight)}}" class="form-control">
+                           <small class="form-text text-muted">Menu Total Weight</small>
+                        </div>
+
+                        <div class="form-group">
+                           <label>Meat</label>
+                           <input type="text" name="meat" value="{{old('meat',$menu->meat)}}" class="form-control">
+                           <small class="form-text text-muted">Meat Weight</small>
                         </div>
 
                         <div class="form-group">
                            <label>About</label>
-                           <input type="hidden" name="about" value="{{old('about',$book->about)}}">
-                           <div name="about" id="editor"></div>
-                           <small class="form-text text-muted">Book Summary</small>
+                           <input type="hidden" name="about" value="{{old('about',$menu->about)}}">
+                           <div id="editor"></div>
+                           <small class="form-text text-muted">Menu Summary</small>
                         </div>
 
-                        <select name="author_id">
-                            @foreach ($authors as $author)
-                                <option value="{{$author->id}}" @if($author->id == $book->author_id) selected @endif>
-                                    {{$author->name}} {{$author->surname}}
+                        <select name="restaurant_id">
+                            @foreach ($restaurants as $restaurant)
+                                <option value="{{$restaurant->id}}" @if($restaurant->id == $menu->restaurant_id) selected @endif>
+                                    {{$restaurant->title}}
                                 </option>
                             @endforeach
                         </select>

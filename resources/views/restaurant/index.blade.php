@@ -5,9 +5,29 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Restaurant List</div>
+                <div class="card-header">
+                    Restaurant List <br>
+                    <div class="flex">
+                        <form action="{{route('restaurant.index')}}" method="get" class="filter-form">
+                            Menus: <select name="menu_title">
+                                <option value="0">Show All</option>
+                                @foreach ($menus as $menu)
+                                    <option value="{{$menu->title}}" @if($selectTitle == $menu->title) selected @endif>{{$menu->title}}</option>
+                                @endforeach
+                            </select>
+                            <button type="submit" class="btn btn-primary">FILTER</button><br>
+                            Sort By: 
+                            Title <input type="radio" name="sort" value="title" @if('title' == $sort) checked @endif>
+                            Customers <input type="radio" name="sort" value="customers" @if('customers' == $sort) checked @endif><br>
+                            Emploees <input type="radio" name="sort" value="emploees" @if('emploees' == $sort) checked @endif><br>
+                        </form>
+                        <form action="{{route('restaurant.index')}}" method="get" class="reset-form">
+                            <button type="submit" class="btn btn-primary">RESET</button>
+                        </form>
+                    </div>
+                </div>
                 <div class="card-body">
-                    @foreach ($restaurants as $restaurant)
+                    @foreach ($restaurantsSorted as $restaurant)
                         <div class="list-text"> {{$restaurant->title}}: customers {{$restaurant->customers}}, emploees {{$restaurant->emploees}} </div>
                         <div class="flex">
                             <form method="GET" action="{{route('restaurant.edit', [$restaurant])}}">

@@ -5,38 +5,44 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Create Book</div>
+                <div class="card-header">Create Menu</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('book.store')}}" id="form">
+                    <form method="POST" action="{{route('menu.store')}}" id="form">
 
                         <div class="form-group">
                            <label>Title</label>
                            <input type="text" name="title" value="{{old('title')}}" class="form-control">
-                           <small class="form-text text-muted">Book Title</small>
+                           <small class="form-text text-muted">Menu Title</small>
                         </div>
 
                         <div class="form-group">
-                           <label>ISBN</label>
-                           <input type="text" name="isbn" value="{{old('isbn')}}" class="form-control">
-                           <small class="form-text text-muted">Book ISBN</small>
+                           <label>Price</label>
+                           <input type="text" name="price" value="{{old('price')}}" class="form-control">
+                           <small class="form-text text-muted">Menu Price</small>
                         </div>
 
                         <div class="form-group">
-                           <label>Pages</label>
-                           <input type="text" name="pages" value="{{old('pages')}}" class="form-control">
-                           <small class="form-text text-muted">Page Count</small>
+                           <label>Weight</label>
+                           <input type="text" name="weight" value="{{old('weight')}}" class="form-control">
+                           <small class="form-text text-muted">Menu Total Weight</small>
+                        </div>
+
+                        <div class="form-group">
+                           <label>Meat</label>
+                           <input type="text" name="meat" value="{{old('meat')}}" class="form-control">
+                           <small class="form-text text-muted">Meat Weight</small>
                         </div>
 
                         <div class="form-group">
                            <label>About</label>
                            <input type="hidden" name="about" value="{{old('about')}}">
                            <div id="editor"></div>
-                           <small class="form-text text-muted">Book Summary</small>
+                           <small class="form-text text-muted">Menu Summary</small>
                         </div>
 
-                        <select name="author_id">
-                            @foreach ($authors as $author)
-                               <option value="{{$author->id}}">{{$author->name}} {{$author->surname}}</option>
+                        <select name="restaurant_id">
+                            @foreach ($restaurants as $restaurant)
+                               <option value="{{$restaurant->id}}">{{$restaurant->title}}</option>
                             @endforeach
                         </select>
                         @csrf

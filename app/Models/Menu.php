@@ -8,7 +8,7 @@ use App\Models\Restaurant;
 
 class Menu extends Model
 {
-    protected $fillable = ['title', 'price', 'wieght', 'meat'];
+    protected $fillable = ['title', 'price', 'weight', 'meat', 'about', 'restaurant_id'];
 
     // public function restaurants() {
     //     return $this->hasMany(RestaurantMenu::class, 'menu_id', 'id');
