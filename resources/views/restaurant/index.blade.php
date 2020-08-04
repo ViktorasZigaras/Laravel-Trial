@@ -28,18 +28,20 @@
                 </div>
                 <div class="card-body">
                     @foreach ($restaurantsSorted as $restaurant)
-                        <div class="list-text"> {{$restaurant->title}}: customers {{$restaurant->customers}}, emploees {{$restaurant->emploees}} </div>
-                        <div class="flex">
-                            <form method="GET" action="{{route('restaurant.edit', [$restaurant])}}">
-                                @csrf
-                                <button type="submit" class="btn btn-primary">EDIT</button>
-                            </form>
-                            <form method="POST" action="{{route('restaurant.destroy', [$restaurant])}}">
-                                @csrf
-                                <button type="submit" class="btn btn-primary">DELETE</button>
-                            </form>
+                        <div class="card-item">
+                            <div class="list-text"> {{$restaurant->title}}: <br> Customers {{$restaurant->customers}} <br> Emploees {{$restaurant->emploees}} </div>
+                            <div class="flex">
+                                <form method="GET" action="{{route('restaurant.edit', [$restaurant])}}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">EDIT</button>
+                                </form>
+                                <form method="POST" action="{{route('restaurant.destroy', [$restaurant])}}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">DELETE</button>
+                                </form>
+                            </div>
+                            <br>
                         </div>
-                        <br>
                     @endforeach
                 </div>
             </div>

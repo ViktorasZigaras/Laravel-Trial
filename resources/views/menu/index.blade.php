@@ -30,24 +30,25 @@
                 </div>
                 <div class="card-body">
                     @foreach ($menus as $menu)
-
-                        <div class="list-text"> {{$menu->title}} </div>
-                        <div class="list-text"> {{$menu->restaurant->title}} </div>
-                        <small class="text-muted"> Price: {{$menu->price}} </small><br>
-                        <small class="text-muted"> Weight: {{$menu->weight}} </small><br>
-                        <small class="text-muted"> Meat content: {{$menu->meat}} </small><br>
-                        <small class="text-muted"> About: {{$menu->about}} </small><br>
-                        <div class="flex">
-                            <form method="GET" action="{{route('menu.edit', [$menu])}}">
-                                @csrf
-                                <button type="submit" class="btn btn-primary">EDIT</button>
-                            </form>
-                            <form method="POST" action="{{route('menu.destroy', [$menu])}}">
-                                @csrf
-                                <button type="submit" class="btn btn-primary">DELETE</button>
-                            </form>
+                        <div class="card-item">
+                            <div class="list-text"> {{$menu->title}} </div>
+                            <div class="list-text"> {{$menu->restaurant->title}} </div>
+                            <small class="text-muted"> Price: {{$menu->price}} </small><br>
+                            <small class="text-muted"> Weight: {{$menu->weight}} </small><br>
+                            <small class="text-muted"> Meat content: {{$menu->meat}} </small><br>
+                            <small class="text-muted"> About: {{$menu->about}} </small><br>
+                            <div class="flex">
+                                <form method="GET" action="{{route('menu.edit', [$menu])}}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">EDIT</button>
+                                </form>
+                                <form method="POST" action="{{route('menu.destroy', [$menu])}}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">DELETE</button>
+                                </form>
+                            </div>
+                            <br>
                         </div>
-                        <br>
                     @endforeach
                 </div>
             </div>

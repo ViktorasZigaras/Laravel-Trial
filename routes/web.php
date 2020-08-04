@@ -28,9 +28,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 ###
 
 Route::group(['prefix' => 'restaurants'], function() {
-    Route::get ('',                'RestaurantController@index')   ->name('restaurant.index');
-    Route::get ('create',          'RestaurantController@create')  ->name('restaurant.create');
-    Route::post('store',           'RestaurantController@store')   ->name('restaurant.store');
+    Route::get ('',                    'RestaurantController@index')   ->name('restaurant.index');
+    Route::get ('create',              'RestaurantController@create')  ->name('restaurant.create');
+    Route::post('store',               'RestaurantController@store')   ->name('restaurant.store');
     Route::get ('edit/{restaurant}',   'RestaurantController@edit')    ->name('restaurant.edit');
     Route::post('update/{restaurant}', 'RestaurantController@update')  ->name('restaurant.update');
     Route::post('delete/{restaurant}', 'RestaurantController@destroy') ->name('restaurant.destroy');
