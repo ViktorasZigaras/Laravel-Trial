@@ -36,7 +36,7 @@
                             <small class="text-muted"> Price: {{$menu->price}} </small><br>
                             <small class="text-muted"> Weight: {{$menu->weight}} </small><br>
                             <small class="text-muted"> Meat content: {{$menu->meat}} </small><br>
-                            <small class="text-muted"> About: {{$menu->about}} </small><br>
+                            <small class="text-muted about"> About: {!! $menu->about !!} </small><br>
                             <div class="flex">
                                 <form method="GET" action="{{route('menu.edit', [$menu])}}">
                                     @csrf
@@ -55,5 +55,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    var html = quill.root.innerHTML;
+    //var render = require('quill-render');
+    //const input = document.querySelector('text-muted.about');
+    //console.log(input);
+    //input.innerHtml = render(input.value);
+</script>
 
 @endsection

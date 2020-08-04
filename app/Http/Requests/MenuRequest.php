@@ -18,7 +18,7 @@ class MenuRequest extends FormRequest
             'price'         => 'required|between:0,9999.99',
             'weight'        => 'required|integer|min:1',
             'meat'          => 'required|integer|min:0|lte:weight',
-            'about'         => 'required|min:16|max:256',
+            'about'         => 'required|min:4|max:256',
             'restaurant_id' => 'required',
         ];
     }
