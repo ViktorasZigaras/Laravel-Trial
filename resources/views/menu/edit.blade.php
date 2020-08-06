@@ -57,13 +57,17 @@
 </div>
 
 <script>
+// {{$menu->about}}
     var quill = new Quill('#editor', {theme: 'snow'});
     const input = document.querySelector('input[name=about]');
     // if (input.value !== '') quill.setContents(JSON.parse(input.value), 'api');
-    if (input.value !== '') quill.setContents(input.value, 'api');
+    // if (input.value !== '') quill.setContents(input.value, 'api');
+    quill.clipboard.dangerouslyPasteHTML(0, input.value);
     document.querySelector('#form').onsubmit = () => {
        // input.value = JSON.stringify(quill.getContents());
-       input.value = quill.getContents();
+       input.value = quill.root.innerHTML;
+       // input.value = quill.container.innerHTML;
+       // console.log(quill.getContents());
     };
 </script>
 @endsection

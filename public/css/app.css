@@ -11041,32 +11041,29 @@ body {
 
 .card-item {
   float: left;
+  display: inline-block;
 }
 
 @media (min-width: 576px) {
   .card-item {
-    display: inline-block;
     width: 95%;
   }
 }
 
 @media (min-width: 768px) {
   .card-item {
-    display: inline-block;
     width: 95%;
   }
 }
 
 @media (min-width: 992px) {
   .card-item {
-    display: inline-block;
     width: 45%;
   }
 }
 
 @media (min-width: 1200px) {
   .card-item {
-    display: inline-block;
     width: 30%;
   }
 }
